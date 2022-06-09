@@ -1,5 +1,10 @@
 import "@nomiclabs/hardhat-waffle"
 import { task, HardhatUserConfig } from "hardhat/config"
+import dotenv from "dotenv"
+
+dotenv.config({
+  path: __dirname + "/.env",
+})
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -19,6 +24,10 @@ const config: HardhatUserConfig = {
   networks: {
     hardhat: {
       chainId: 1337,
+    },
+    ropsten: {
+      url: process.env.ROPSTEN_PROVIDER_URL_HTTPS as string,
+      accounts: [`0x${process.env.ACCOUNT_PRIVATE_KEY}`],
     },
   },
 }

@@ -5,7 +5,7 @@ import "./App.css"
 import Greeter from "./artifacts/contracts/Greeter.sol/Greeter.json"
 import { ethers } from "ethers"
 
-const GREETER_ADDRESS = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+const GREETER_ADDRESS = process.env.REACT_APP_GREETER_CONTRACT_ADDRESS as string
 
 function App() {
   const [greeting, setGreetingValue] = useState<string>()
